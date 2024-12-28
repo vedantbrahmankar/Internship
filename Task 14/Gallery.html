@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Make a Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/663ccf1671.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="gallery-wrap">
+        <img src="back.png" id="backBtn" alt="Back Button">
+        <div class="gallery">
+            <div>
+                <span><img src="image-1.png" alt="Image 1"></span>
+                <span><img src="image-2.png" alt="Image 2"></span>
+                <span><img src="image-3.png" alt="Image 3"></span>
+            </div>
+            <div>
+                <span><img src="image-4.png" alt="Image 4"></span>
+                <span><img src="image-5.png" alt="Image 5"></span>
+                <span><img src="image-6.png" alt="Image 6"></span>
+            </div>
+        </div>
+        <img src="next.png" id="nextBtn" alt="Next Button">
+    </div>
+    <script>
+        let scrollContainer = document.querySelector(".gallery");
+        let backBtn = document.getElementById("backBtn");
+        let nextBtn = document.getElementById("nextBtn");
+        
+        // Enable smooth scrolling
+        scrollContainer.style.scrollBehavior = "smooth";
+        
+        // Wheel scrolling
+        scrollContainer.addEventListener("wheel", (evt) => {
+            evt.preventDefault();
+            scrollContainer.scrollLeft += evt.deltaY;
+        });
+
+        // Next button scroll
+        nextBtn.addEventListener("click", () => {
+            scrollContainer.scrollLeft += 900;
+        });
+
+        // Back button scroll
+        backBtn.addEventListener("click", () => {
+            scrollContainer.scrollLeft -= 900;
+        });
+    </script>
+</body>
+</html>
